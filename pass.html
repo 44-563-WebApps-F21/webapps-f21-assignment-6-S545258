@@ -26,10 +26,14 @@
 
 <p id="result" style="margin:10px;"></p>
 
+<div class="container">
+    <img src="lion.jpg" id="image" style="height: 200px;" width: "200px;" onclick="newImage()" ></img>
+</div>
+
 <script> 
  correct = 0;
  wrong = 0;
-
+ 
 function processPhrase (){
     console.log("Getting form values")
     var secretPhrase = document.getElementById("secret_phrase").value;
@@ -44,8 +48,42 @@ function processPhrase (){
      var out = document.getElementById("result");
     
      out.innerHTML = "Correct: " + correct + "<br>" + "Wrong: " + wrong;
-    
+     if(wrong==3 && correct==0)
+     {
+         alert("accountlocked");
+     }
 }
+
+     
+     var usingImage = 1;
+
+     function newImage(){
+       
+        switch(usingImage){
+
+            case 1: 
+                   usingImage++;
+                  document.getElementById("image").src = "penguin.jpg";
+                  
+                  break;
+
+            case 2:
+                  usingImage++;
+                 document.getElementById("image").src = "Elephant.jpg";
+                  break;
+
+            case 3:
+                  usingImage =1;
+                 document.getElementById("image").src = "lion.jpg";
+                 break;
+
+        }
+
+     }
+
+
+
+    
 </script>
 </body>
-</html> 
+</html>
