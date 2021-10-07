@@ -42,8 +42,11 @@
 
 <p id="result" style="margin:10px;"></p>
 
-<div class="container">
-    <img src="lion.jpg" id="image" style="height: 200px;" width: "200px;" onclick="newImage()" ></img>
+<div>
+    <img src="lion.jpg" id="image" style="height: 200px;width: 200px;" onclick="newImage()"></img><br><br>
+
+    <img src="penguin.jpg" id="guess" style="height: 200px;width: 200px;" onclick="newImage()"></img>
+
 </div>
 
 <script> 
@@ -83,19 +86,22 @@
         switch(usingImage){
 
             case 1: 
-                   usingImage++;
+                   
                   document.getElementById("image").src = "penguin.jpg";
-                  
+                  document.getElementById("guess").src = "Elephant.jpg";
+                  usingImage++;
                   break;
 
             case 2:
-                  usingImage++;
                  document.getElementById("image").src = "Elephant.jpg";
+                 document.getElementById("guess").src = "lion.jpg";
+                 usingImage++;
                   break;
 
             case 3:
-                  usingImage =1;
                  document.getElementById("image").src = "lion.jpg";
+                 document.getElementById("guess").src = "penguin.jpg";
+                 usingImage =1;
                  break;
 
         }
