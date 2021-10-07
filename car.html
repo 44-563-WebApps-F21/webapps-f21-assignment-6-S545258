@@ -66,9 +66,9 @@ my_car = JSON.parse(my_car);
 function updateCar(){
     
 let property = document.getElementById("property").value;
-let Val = document.getElementById("Val").value;
+let propertyVal = document.getElementById("propertyVal").value;
 
-my_car[property]=Val;
+my_car[property]=propertyVal;
 
 my_car = JSON.stringify(my_car);
 

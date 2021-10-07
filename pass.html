@@ -2,6 +2,22 @@
 <html>
     <head>
         <title>Java script and Dom Assignment</title>
+        <style>
+    
+            h1 {
+                background-color: red;
+            }
+        
+            label {
+                color: blue;
+            }
+        
+            p {
+                color: darkred;
+            }
+        
+        
+                </style>
     </head>
  
 <body>
@@ -11,12 +27,12 @@
 <h3>Getting input</h3>
 <form id="phraseCheckForm">
     <div style="margin:10px;">
-    <label for="secret_phrase">Enter the secret phrase</label>
-    <input type ="password" id="secret_phrase" name="secret_phrase" value="Let me in">
+    <label for="secret_Phrase">Enter the secret phrase</label>
+    <input type ="password" id="secret_Phrase" name="secret_Phrase" value="Let me in">
 </div>
 <div style="margin:10px;">
-    <label for="phrase">Enter a phrase</label>
-    <input type ="text" id="phrase" name="phrase"/>
+    <label for="checkPhrase">Enter a phrase</label>
+    <input type ="text" id="checkPhrase" name="checkPhrase "/>
 </div>
 <div style="margin:10px;">
     <input type="button" id="btnProcessPhrase" onclick="processPhrase()" value="Check the phrase"/>
@@ -33,27 +49,32 @@
 <script> 
  correct = 0;
  wrong = 0;
- 
-function processPhrase (){
-    console.log("Getting form values")
-    var secretPhrase = document.getElementById("secret_phrase").value;
-    var phrase = document.getElementById("phrase").value;
-    if(secretPhrase != null && secretPhrase.trim() != "" && phrase != null && phrase.trim() != "" && secretPhrase == phrase){
-      correct =correct + 1;
-      alert("Access Allowed");
-    }else{
-        wrong = wrong + 1;
-        alert("Access Denied");  
-    }
-     var out = document.getElementById("result");
+ let errorFlag = 1;
     
-     out.innerHTML = "Correct: " + correct + "<br>" + "Wrong: " + wrong;
-     if(wrong==3 && correct==0)
-     {
-         alert("accountlocked");
-     }
-}
+   function processPhrase (){
+       console.log("Getting form values")
+       var secretPhrase = document.getElementById("secret_Phrase").value;
+       var checkPhrase = document.getElementById("checkPhrase").value;
 
+       if(secretPhrase != null && secretPhrase.trim() != "" && checkPhrase != null && checkPhrase.trim() != "" && secretPhrase == checkPhrase){
+         correct =correct + 1;
+         alert("Access Allowed");
+         errorFlag =0;
+       }else{
+           wrong = wrong + 1;
+           alert("Access Denied"); 
+           errorFlag++;
+           if (wrong >= 3 && errorFlag>2) {
+                    alert("account locked");
+            }
+       
+        var out = document.getElementById("result");
+       
+        out.innerHTML = "Correct: " + correct + "<br>" + "Wrong: " + wrong;
+       
+   }
+    
+   }
      
      var usingImage = 1;
 
@@ -81,9 +102,6 @@ function processPhrase (){
 
      }
 
-
-
-    
 </script>
 </body>
 </html>
